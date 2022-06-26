@@ -6,8 +6,8 @@ local inicfg = require 'inicfg'
 
 update_state = false
 
-local script_vers = 1
-local script_vers_text = "1.00"
+local script_vers = 2
+local script_vers_text = "1.05"
 
 local update_url = "https://raw.githubusercontent.com/ajikaiii/scripts/main/update.ini"
 local update_path = getWorkingDirectory() .. "/update.ini"
@@ -18,6 +18,8 @@ local script_path = thisScript().path
 function main()
 	if not isSampLoaded() or not isSampfuncsLoaded() then return end
 	while not isSampAvailable() do wait(100) end
+
+	sampRegisterChatCommand("update", cmd_update)
 
 	repeat
       wait(0)
@@ -52,4 +54,9 @@ print("true")
 		end
 	end
 end
+
+function cmd_update(arg)
+	sampShowDialog(1000, "Автообновление v2.0", "{FFFFFF}Это урок по обновлению\n{FFF000}Новая версия", "Закрыть", "", 0)
+end
+
 
