@@ -6,13 +6,13 @@ local inicfg = require 'inicfg'
 
 update_state = false
 
-local script_vers = 0
-local script_vers_text = "0.00"
+local script_vers = 1
+local script_vers_text = "1.00"
 
 local update_url = "https://raw.githubusercontent.com/ajikaiii/scripts/main/update.ini"
 local update_path = getWorkingDirectory() .. "/update.ini"
 
-local script_url = ""
+local script_url = "https://github.com/ajikaiii/scripts/blob/main/lesson_16.lua"
 local script_path = thisScript().path
 
 function main()
@@ -30,8 +30,8 @@ print("true")
 			updateIni = inicfg.load(nil, update_path)
 			print("true")
 			if tonumber(updateIni.info.vers) > script_vers then
-				sampAddChatMessage("Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
-				print("Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
+				sampAddChatMessage("Р•СЃС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ! Р’РµСЂСЃРёСЏ: " .. updateIni.info.vers_text, -1)
+				print("Р•СЃС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ! Р’РµСЂСЃРёСЏ: " .. updateIni.info.vers_text, -1)
 				update_state = true
 			end
 			os.remove(update_path)
@@ -44,7 +44,7 @@ print("true")
 		if update_state then
 			downloadUrlToFile(script_url, script_path, function(id, status)
 				if status == dlstatus.ENDDOWNLOADDATA then
-					sampAddChatMessage("Скрипт успешно обновлен!" .. updat
+					sampAddChatMessage("РЎРєСЂРёРїС‚ СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅ!" .. updat
 					thisScript().reload()
 				end
 			end)
@@ -52,3 +52,4 @@ print("true")
 		end
 	end
 end
+
