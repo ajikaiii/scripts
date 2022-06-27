@@ -36,8 +36,8 @@ print("true")
 			updateIni = inicfg.load(nil, update_path)
 			print("true")
 			if tonumber(updateIni.info.vers) > script_vers then
-				sampAddChatMessage("Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
-				print("Есть обновление! Версия: " .. updateIni.info.vers_text)
+				sampAddChatMessage("Р•СЃС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ! Р’РµСЂСЃРёСЏ: " .. updateIni.info.vers_text, -1)
+				print("Р•СЃС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ! Р’РµСЂСЃРёСЏ: " .. updateIni.info.vers_text)
 				update_state = true
 			end
 			os.remove(update_path)
@@ -50,10 +50,10 @@ print("true")
 		if update_state then
 			downloadUrlToFile(script_url, script_path, function(id, status)
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-					sampAddChatMessage("Скрипт успешно обновлен!", -1)
+					sampAddChatMessage("РЎРєСЂРёРїС‚ СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅ!", -1)
 					--thisScript().reload()
 					update_state = false
-					break
+					--break
 				end
 			end)
 			--break
@@ -62,5 +62,6 @@ print("true")
 end
 
 function cmd_update(arg)
-	sampShowDialog(1000, "Автообновление v2.0", "{FFFFFF}Это урок по обновлению\n{FFF000}Новая версия v 2.0", "Закрыть", "", 0)
+	sampShowDialog(1000, "РђРІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ v2.0", "{FFFFFF}Р­С‚Рѕ СѓСЂРѕРє РїРѕ РѕР±РЅРѕРІР»РµРЅРёСЋ\n{FFF000}РќРѕРІР°СЏ РІРµСЂСЃРёСЏ v 2.0", "Р—Р°РєСЂС‹С‚СЊ", "", 0)
 end
+
