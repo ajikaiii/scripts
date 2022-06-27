@@ -16,7 +16,7 @@ local script_vers_text = "1.05"
 local update_url = "https://raw.githubusercontent.com/ajikaiii/scripts/main/update.ini"
 local update_path = getWorkingDirectory() .. "/update.ini"
 
-local script_url = "https://github.com/ajikaiii/scripts/blob/main/lesson_16.luaс?raw=true"
+local script_url = "https://github.com/ajikaiii/scripts/blob/main/lesson_16.luaГ±?raw=true"
 local script_path = thisScript().path
 
 function main()
@@ -36,8 +36,8 @@ print("true")
 			updateIni = inicfg.load(nil, update_path)
 			print("true")
 			if tonumber(updateIni.info.vers) > script_vers then
-				sampAddChatMessage("Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
-				print("Есть обновление! Версия: " .. updateIni.info.vers_text)
+				sampAddChatMessage("Г…Г±ГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ! Г‚ГҐГ°Г±ГЁГї: " .. updateIni.info.vers_text, -1)
+				print("Г…Г±ГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ! Г‚ГҐГ°Г±ГЁГї: " .. updateIni.info.vers_text)
 				update_state = true
 			end
 			os.remove(update_path)
@@ -50,7 +50,7 @@ print("true")
 		if update_state then
 			downloadUrlToFile(script_url, script_path, function(id, status)
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-					sampAddChatMessage("Скрипт успешно обновлен!", -1)
+					sampAddChatMessage("Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­!", -1)
 					thisScript().reload()
 				end
 			end)
@@ -60,5 +60,6 @@ print("true")
 end
 
 function cmd_update(arg)
-	sampShowDialog(1000, "Автообновление v2.0", "{FFFFFF}Это урок по обновлению\n{FFF000}Новая версия v 2.0", "Закрыть", "", 0)
+	sampShowDialog(1000, "ГЂГўГІГ®Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ v2.0", "{FFFFFF}ГќГІГ® ГіГ°Г®ГЄ ГЇГ® Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГѕ\n{FFF000}ГЌГ®ГўГ Гї ГўГҐГ°Г±ГЁГї v 2.0", "Г‡Г ГЄГ°Г»ГІГј", "", 0)
+	--
 end
