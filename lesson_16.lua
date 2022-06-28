@@ -5,24 +5,21 @@ local dlstatus = require("moonloader").download_status
 local inicfg = require 'inicfg'
 
 local encoding = require 'encoding'
-encoding.default = 'CP1251'
-local u8 = encoding.UTF8
+encoding.default = 'UTF-8'
+local u8 = encoding.CP1251
 
-local encoding = require 'encoding'
-
-encoding.default = 'CP1251'
-local u8 = encoding.UTF8
-local function recode(u8) return encoding.UTF8:decode(u8) end
 
 update_state = false
 
-local script_vers = 1
-local script_vers_text = "1.00"
+local script_vers = 2
+local script_vers_text = "2.00"
 
 local update_url = "https://raw.githubusercontent.com/ajikaiii/scripts/main/update.ini"
+--local update_url = "https://www.dropbox.com/s/sumzb4t7ijwuzyz/update.json?dl=1"
 local update_path = getWorkingDirectory() .. "/update.ini"
 
-local script_url = "https://github.com/ajikaiii/scripts/blob/main/lesson_16.luac?raw=true"
+local script_url = "https://github.com/ajikaiii/scripts/blob/main/lesson_16.lua?raw=true"
+--local script_url = "https://www.dropbox.com/s/g9heqv3gyxxbkw1/lesson_16.lua?dl=1"
 local script_path = thisScript().path
 
 function main()
@@ -42,8 +39,8 @@ print("true")
 			updateIni = inicfg.load(nil, update_path)
 			print("true")
 			if tonumber(updateIni.info.vers) > script_vers then
-				sampAddChatMessage(u8"Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
-				print(u8"Есть обновление! Версия: " .. updateIni.info.vers_text)
+				sampAddChatMessage(u8"Р•СЃС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ! Р’РµСЂСЃРёСЏ: " .. updateIni.info.vers_text, -1)
+				print(u8"Р•СЃС‚СЊ РѕР±РЅРѕРІР»РµРЅРёРµ! Р’РµСЂСЃРёСЏ: " .. updateIni.info.vers_text)
 				update_state = true
 			end
 			os.remove(update_path)
@@ -59,7 +56,7 @@ print("true")
 				print("eeee")
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
 					lua_thread.create(function()
-						sampAddChatMessage(u8"Скрипт успешно обновлен!", -1)
+						sampAddChatMessage(u8"РЎРєСЂРёРїС‚ СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅ!", -1)
 						--wait(200)
 						--thisScript().reload()
 						update_state = false
@@ -79,5 +76,5 @@ print("true")
 end
 
 function cmd_update(arg)
-	sampShowDialog(1000, u8"Автообновление v2.0", u8"{FFFFFF}Это урок по обновлению\n{FFF000}Новая версия", u8"Закрыть", "", 0)
+	sampShowDialog(1000, u8"РђРІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ v2.0", u8"{FFFFFF}Р­С‚Рѕ СѓСЂРѕРє РїРѕ РѕР±РЅРѕРІР»РµРЅРёСЋ\n{FFF000}РќРѕРІР°СЏ РІРµСЂСЃРёСЏ v 2.0", u8"Р—Р°РєСЂС‹С‚СЊ", "", 0)
 end
