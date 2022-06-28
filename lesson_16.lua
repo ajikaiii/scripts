@@ -57,9 +57,9 @@ print("true")
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
 					lua_thread.create(function()
 						sampAddChatMessage(u8"Скрипт успешно обновлен!", -1)
-						--wait(200)
-						--thisScript().reload()
-						update_state = false
+						wait(200)
+						thisScript().reload()
+						--update_state = false
 						--break
 					end)
 				end
