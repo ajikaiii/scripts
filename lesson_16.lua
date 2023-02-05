@@ -5,8 +5,8 @@ local dlstatus = require("moonloader").download_status
 local inicfg = require 'inicfg'
 
 local encoding = require 'encoding'
-encoding.default = 'CP1251'
-local u8 = encoding.UTF8
+encoding.default = 'UTF-8'
+local u8 = encoding.CP1251
 
 
 update_state = false
@@ -39,8 +39,8 @@ print("true")
 			updateIni = inicfg.load(nil, update_path)
 			print("true")
 			if tonumber(updateIni.info.vers) > script_vers then
-				sampAddChatMessage("Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
-				print("Есть обновление! Версия: " .. updateIni.info.vers_text)
+				sampAddChatMessage(u8"Есть обновление! Версия: " .. updateIni.info.vers_text, -1)
+				print(u8"Есть обновление! Версия: " .. updateIni.info.vers_text)
 				update_state = true
 			end
 			os.remove(update_path)
@@ -56,7 +56,7 @@ print("true")
 				print("eeee")
 				if status == dlstatus.STATUS_ENDDOWNLOADDATA then
 					lua_thread.create(function()
-						sampAddChatMessage("Скрипт успешно обновлен!", -1)
+						sampAddChatMessage(u8"Скрипт успешно обновлен!", -1)
 						wait(200)
 						thisScript().reload()
 						--update_state = false
@@ -76,5 +76,5 @@ print("true")
 end
 
 function cmd_update(arg)
-	sampShowDialog(1000, "Автообновление v2.0", "{FFFFFF}Это урок по обновлению\n{FFF000}Новая версия v 2.0", "Закрыть", "", 0)
+	sampShowDialog(1000, u8"Автообновление v2.0", u8"{FFFFFF}Это урок по обновлению\n{FFF000}Новая версия v 2.0", u8"Закрыть", "", 0)
 end
