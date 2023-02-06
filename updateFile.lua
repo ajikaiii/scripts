@@ -1,7 +1,7 @@
 local imgui = require 'imgui'
 local key = require 'vkeys'
 -- вот это надо
-script_version("2.0")
+script_version("3.0")
 script_name("UpdateFile")
 local color = 0x348cb2
 -- это тоже
